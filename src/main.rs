@@ -2,6 +2,8 @@ use clap::Parser;
 
 mod lex;
 mod parser;
+mod tokens;
+mod ast;
 mod code_generator;
 
 #[derive(Parser, Debug)]

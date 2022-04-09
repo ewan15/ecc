@@ -1,5 +1,6 @@
 use std::fs;
 use std::ops::Index;
+use std::str::FromStr;
 use regex::{Match, Regex};
 use crate::lex::Token::{EndFunction, Int, Number, Return, SemiColon, StartFunction};
 
@@ -21,7 +22,7 @@ fn string_to_token(token_str: &str) -> Token {
         "int" => Int,
         "return" => Return,
         ";" => SemiColon,
-        &_ => { Number(5) }
+        &_ => { Number(i32::from_str(token_str).unwrap_or(0)) }
     }
 }
 
